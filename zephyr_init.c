@@ -12,6 +12,7 @@
 
 #include <init.h>
 #include <app_memory/app_memdomain.h>
+#include <linker/linker-defs.h>
 
 #if defined(CONFIG_MBEDTLS)
 #if !defined(CONFIG_MBEDTLS_CFG_FILE)
@@ -30,7 +31,7 @@
 option."
 #endif
 
-static unsigned char _mbedtls_heap[CONFIG_MBEDTLS_HEAP_SIZE];
+static unsigned char __ccm_data_section _mbedtls_heap[CONFIG_MBEDTLS_HEAP_SIZE];
 
 static void init_heap(void)
 {
